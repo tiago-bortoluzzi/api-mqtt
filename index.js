@@ -2,21 +2,21 @@ const aedes = require('aedes')()
 const mqtt = require('mqtt')
 const fs = require('fs')
 const server = require('net').createServer(aedes.handle)
-const port = 9883
+const port = process.env.PORT || 3000
 
 /* LOCAL SERVER */
-server.listen(port || 3000, function () {
+server.listen(port, function () {
   console.log('MQTT Server started and listening on port ', port)
 })
 
 
 // LOCAL CLIENT
-const broker = 'https://localhost:9883'
+const broker = 'https://localhost:' + port
 const localClient = mqtt.connect(broker) //, options);
 localClient.on('connect', () => {
     console.log('Local client connected to local server')
 })
-
+/*
 // MINDCONNECT CLIENT
 const mcBroker = 'mqtts://mindconnectmqtt.eu1.mindsphere.io'
 const clientId = 'debr2_test'
@@ -51,3 +51,4 @@ mcClient.on('message', (topic, message) => {
 mcClient.on('error', (error) => {
 		console.log(error)
 	})
+*/
