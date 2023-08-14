@@ -18,11 +18,11 @@ httpServer.listen(port, function () {
 })
 
 // LOCAL CLIENT
-const broker = 'https://localhost:' + port
+const broker = 'ws://localhost:' + port
 const options = {
   keepalive: 60,
   clientId: 'test',
-  protocolId: 'WS',
+  protocolId: 'MQTT',
   protocolVersion: 4,
   clean: true
 }
