@@ -1,14 +1,21 @@
 const aedes = require('aedes')()
 const mqtt = require('mqtt')
 const fs = require('fs')
-const server = require('net').createServer(aedes.handle)
+const httpServer = require('http').createServer()
+const ws = require('websocket-stream')
+//const server = require('net').createServer(aedes.handle)
 const port = process.env.PORT || 3000
 
-/* LOCAL SERVER */
+/*
+// LOCAL SERVER
 server.listen(port, function () {
   console.log('MQTT Server started and listening on port ', port)
 })
-
+*/
+ws.createServer({ server: httpServer }, aedes.handle)
+httpServer.listen(port, function () {
+  console.log('websocket server listening on port ', port)
+})
 
 // LOCAL CLIENT
 const broker = 'https://localhost:' + port
