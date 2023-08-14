@@ -19,7 +19,14 @@ httpServer.listen(port, function () {
 
 // LOCAL CLIENT
 const broker = 'https://localhost:' + port
-const localClient = mqtt.connect(broker) //, options);
+const options = {
+  keepalive: 60,
+  clientId: 'test',
+  protocolId: 'WS',
+  protocolVersion: 4,
+  clean: true
+}
+const localClient = mqtt.connect(broker, options) //, options);
 localClient.on('connect', () => {
     console.log('Local client connected to local server')
 })
