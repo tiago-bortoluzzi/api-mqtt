@@ -3,7 +3,7 @@ const mqtt = require('mqtt')
 const fs = require('fs')
 const httpServer = require('http').createServer()
 const ws = require('websocket-stream')
-const server = require('net').createServer(aedes.handle)
+//const server = require('net').createServer(aedes.handle)
 const port = process.env.PORT || 3000
 
 /*
