@@ -30,7 +30,7 @@ const localClient = mqtt.connect(broker, options) //, options);
 localClient.on('connect', () => {
     console.log('Local client connected to local server')
 })
-/*
+
 // MINDCONNECT CLIENT
 const mcBroker = 'mqtts://mindconnectmqtt.eu1.mindsphere.io'
 const clientId = 'debr2_test'
@@ -65,4 +65,4 @@ mcClient.on('message', (topic, message) => {
 mcClient.on('error', (error) => {
 		console.log(error)
 	})
-*/
+
